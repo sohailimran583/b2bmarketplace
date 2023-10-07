@@ -18,11 +18,11 @@ php artisan serve
             password =>  admin123
             User
             email => user@gmail.com
-            password => admin123
-            
-             email => user1@gmail.com
-            password => admin123
+            password => user123
 
-          email => user2@gmail.com  
-            password => admin123
+            Company
+            email => company@gmail.com
+            password => company123
+            
+           
            
