@@ -44,11 +44,11 @@ class CompanyController extends Controller
 
    
 
-    public function edit(User $user)
-    {
-        $users=User::find($user);
-        dd($users);
-    }
+    // public function edit(User $user)
+    // {
+    //     $users=User::find($user);
+    //     dd($users);
+    // }
 
     public function update(Request $request, $id)
     {
@@ -57,7 +57,10 @@ class CompanyController extends Controller
 
     public function destroy($id)
     {
-        
+       
+    User::findOrFail($id)->delete();
+    return back()->with('success', 'Company deleted successfully');
+
     }
 
     public function show($id)

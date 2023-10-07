@@ -7,7 +7,7 @@ use App\Http\Controllers\User\{UserController};
 use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\Company\{ProductController};
 use App\Http\Controllers\Payment\{PaypallController}; 
-use App\Http\Controllers\Admin\{AdminController,CompanyController};
+use App\Http\Controllers\Admin\{AdminController,CompanyController,NotificationController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +21,9 @@ Route::fallback(function () {
 //  Admin
 Route::group(['middleware' => ['auth', 'CheckRole:1'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/user/list', [NotificationController::class, 'index'])->name('user.list');
+    Route::post('/notification/create', [NotificationController::class, 'create_email'])->name('notification.create');
+    Route::post('/notification/send', [NotificationController::class, 'send_email'])->name('notification.send');
     Route::resource('/company', CompanyController::class);
 
     });
@@ -31,28 +34,20 @@ Route::group(['middleware' => ['auth', 'CheckRole:2'], 'prefix' => 'user', 'as' 
     });
     // Company
 Route::group(['middleware' => ['auth', 'CheckRole:3'], 'prefix' => 'company', 'as' => 'company.'], function () {
-    // impement code by viewcomposer
     Route::view('/dashboard','company.dashboard')->name('dashboard');
     Route::resource('/product', ProductController::class);
     });
 
 Route::post('/product/checkout/{id}', [PaypallController::class, 'checkout'])->name('checkout.product')->middleware(['auth', 'CheckRole:2']);
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/product/buy', function(){  
-    return view('product.buy',['products'=> Product::get()]);})->name('product.buy')->middleware(['auth', 'CheckRole:2']);
-    
-
-Route::get('/logout', function(){
-    Auth::logout();
-
-    return redirect('/login');
-});
-
+    return view('product.buy',['products'=> Product::get()]);
+})->name('product.buy')->middleware(['auth', 'CheckRole:2']);
 
 Route::get('payment/success', [PaypallController::class, 'success'])->name('payment.success');
 Route::get('payment/cancel', [PaypallController::class, 'cancel'])->name('payment.cancel');
-
-
-
 Route::post('/product/checkout/{id}', [PaypallController::class, 'checkout'])->name('checkout.product')->middleware(['auth', 'CheckRole:2']);
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/login');
+});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
