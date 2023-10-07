@@ -29,8 +29,8 @@ class PayPalPaymentService implements PaymentInterface
             ]
                 ],
                 'application_context'=>[ 
-                    'cancel_url'=>route('user.payment.cancel'),
-                    'return_url'=>route('user.payment.success'),
+                    'cancel_url'=>route('payment.cancel'),
+                    'return_url'=>route('payment.success'),
                 ]
         ]);
          

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\Product;
-use App\Services\PayPalPaymentService;
+use Illuminate\Http\Request;
+use App\Contracts\PaymentInterface;
+use App\Http\Controllers\Controller;
 
 class PaypallController extends Controller
 {
     protected $paypalService;
 
-    public function __construct(PayPalPaymentService $paypalService)
+    public function __construct(PaymentInterface $paypalService)
     {
         $this->paypalService = $paypalService;
     }

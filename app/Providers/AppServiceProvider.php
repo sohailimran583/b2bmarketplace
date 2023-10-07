@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Contracts\PaymentInterface;
 use App\Services\PayPalPaymentService;
 use Illuminate\Support\ServiceProvider;
 
@@ -11,9 +12,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(PayPalPaymentService::class, function ($app) {
-            return new PayPalPaymentService();
-        });
+ 
+        $this->app->bind(PaymentInterface::class,PaypalPaymentService::class );
+
     }
 
     /**

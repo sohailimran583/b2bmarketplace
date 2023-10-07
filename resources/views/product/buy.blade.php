@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center">Your product</h1>
+        <h1 class="text-center">Product Page</h1>
         @if(session('success'))
             <div class="alert alert-success">
                 {{session('success')}}
@@ -28,7 +28,10 @@
                                 <p>{!! $product->description !!}</p>
                             </div>
                             <div class="card-footer">
-                            
+                                <form method="POST" action="{{ route('checkout.product', [$product->id]) }}">
+                                    @csrf        
+                                    <button type="submit" class="btn btn-primary btn-block">Buy Now with Paypall</button>
+                                </form>
                             </div>
                             
                         </div>

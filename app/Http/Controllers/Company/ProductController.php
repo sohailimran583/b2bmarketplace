@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::get();
+        $products=Product::where('user_id','=',auth()->id())->get();
         return view('company.product.index',['products'=>$products]);
     }
 

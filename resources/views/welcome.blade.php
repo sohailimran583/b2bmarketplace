@@ -32,10 +32,8 @@
       <div class="collapse navbar-collapse tmta-navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 tmta-navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Buy Product</a>
-          </li>
-
-   
+            <a class="nav-link active" aria-current="page" href="{{ route('product.buy') }}">Buy Product</a>
+          </li>   
           <li class="nav-item">
             <a class="nav-link" href="{{ route('user.dashboard') }}">Dashboard</a>
           </li>

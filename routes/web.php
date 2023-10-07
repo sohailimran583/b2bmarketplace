@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\{Route,Auth};
-use App\Http\Controllers\{HomeController};
-use App\Http\Controllers\User\{UserController};
-use App\Http\Controllers\Admin\{AdminController,CompanyController};
-use App\Http\Controllers\Company\{ProductController};
-// use App\Http\Controllers\Order\OrderController;
-use App\Http\Controllers\Payment\{PaypallController};
 use App\Models\Product;
+use App\Http\Controllers\{HomeController};
+use Illuminate\Support\Facades\{Route,Auth};
+use App\Http\Controllers\User\{UserController};
+use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\Company\{ProductController};
+use App\Http\Controllers\Payment\{PaypallController}; 
+use App\Http\Controllers\Admin\{AdminController,CompanyController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth', 'CheckRole:1'], 'prefix' => 'admin', 'as'
     });
 Route::group(['middleware' => ['auth', 'CheckRole:2'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+    Route::get('myorders/status', [OrderController::class, 'order_status'])->name('myorder.status');
+
     });
     // Company
 Route::group(['middleware' => ['auth', 'CheckRole:3'], 'prefix' => 'company', 'as' => 'company.'], function () {
@@ -37,10 +39,20 @@ Route::group(['middleware' => ['auth', 'CheckRole:3'], 'prefix' => 'company', 'a
 Route::post('/product/checkout/{id}', [PaypallController::class, 'checkout'])->name('checkout.product')->middleware(['auth', 'CheckRole:2']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+Route::get('/product/buy', function(){  
+    return view('product.buy',['products'=> Product::get()]);})->name('product.buy')->middleware(['auth', 'CheckRole:2']);
+    
 
 Route::get('/logout', function(){
     Auth::logout();
 
     return redirect('/login');
 });
+
+
+Route::get('payment/success', [PaypallController::class, 'success'])->name('payment.success');
+Route::get('payment/cancel', [PaypallController::class, 'cancel'])->name('payment.cancel');
+
+
+
+Route::post('/product/checkout/{id}', [PaypallController::class, 'checkout'])->name('checkout.product')->middleware(['auth', 'CheckRole:2']);
