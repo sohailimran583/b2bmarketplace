@@ -26,7 +26,3 @@ php artisan serve
           email => user2@gmail.com  
             password => admin123
            
-
-PAYPAL_SANDBOX_CLIENT_ID=ARx7Cn29jn30mZ1sFPAb_avooGkpkwHDYjxvoiWArz-3tZeb7onZ9OMKHSUPUBRTG05NLy2bcx2RnLLk
-PAYPAL_SANDBOX_CLIENT_SECRET=EGFvkaiJ8-9IvQniAyKQ8kOY8_Nga-qaUs8ShoRuO7Ly3mj9CR5XhUeY5DtgIPSjBXOW1HV2F4eMAaTp
-PAYPAL_CURRENCY=USD

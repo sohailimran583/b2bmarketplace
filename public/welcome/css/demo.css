@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "mf";
+    src: url("https://fonts.cdnfonts.com/css/bodoni");
+    /* src: url("fonts\BodoniModa-VariableFont_opsz,wght.ttf") format("woff"); */
+}
+
+.tmta-navbar-brand {
+    color: #0056b3;
+    font-weight: 500;
+    border: none;
+}
+
+.tmta-navbar-nav li>a {
+    color: #0056b3 !important;
+    font-weight: 600;
+    margin: 0px 10px;
+}
+
+.tmta-header-search-inpu-wrap {
+    position: relative;
+}
+
+.tmta-header-search-inpu-wrap>i {
+    position: absolute;
+    left: 25px !important;
+    top: 12px;
+    font-size: 18px;
+    color: lightgray;
+}
+
+.tmta-header-search-inpu-wrap>.tmta-header-search-input {
+    padding: 5px 0px 5px 50px;
+    font-size: 18px;
+    font-weight: 500;
+    width: 180px;
+}
+
+.tmta-navbar-main {
+    border-bottom: 1px solid #e1ebf5;
+}
+
+.tmta-header-search-input::placeholder {
+    color: lightgray;
+}
+
+button.tmta-header-search-btn {
+    color: white;
+    font-weight: 500;
+    border: none;
+    background: #0056b3;
+    padding: 12px 9px;
+    border-radius: 10px;
+}
+
+.tmta-header-login {
+    color: #0056b3 !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+h1.tmta-banner-h1 {
+
+    color: #0056b3;
+    font-weight: 600;
+    border: none;
+    font-family: -webkit-body;
+    font-size: 50px;
+
+}
+.tmta-banner-p {
+    font-style: italic;
+}
+.get-started-btn-banner {
+    color: white;
+    font-weight: 500;
+    border: none;
+    background: #0056b3;
+    padding: 12px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 170px;
+    text-align: center;
+    font-size: 20px;
+}
+
+element.style {
+    font-size: 30px;
+    color: gray;
+}
+
+.tmta-banner-sec p {
+    font-size: 27px;
+    color: gray;
+}
+
+.tmta-banner-img img {
+
+    height: 350px;
+    border-radius: 50%;
+    width: 350px;
+    object-fit: cover;
+}
+
+.tmta-banner-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-bg {
+    position: absolute;
+    width: 73%;
+    height: 100%;
+    top: 0%;
+    right: 0%;
+    background: #e1ebf5;
+    border-bottom-left-radius: 99%;
+}
+
+section.tmta-banner-sec {
+    position: relative;
+}
+.tmta-banner-img-parent,.tmta-banner-text-parent{
+    z-index: 9;
+}
