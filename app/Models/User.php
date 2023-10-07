@@ -19,10 +19,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    public function kyc()
-    {
-        return $this->hasOne(KycDocument::class);
-    }
+    
 
 
     public function payment()

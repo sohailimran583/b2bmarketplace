@@ -13,12 +13,11 @@ class CompanyController extends Controller
 {
    
  
-  
 
     public function index()
     {
-        $users= User::where('role_id',2)->get();
-        return response()->json(['users' =>$users], 200);
+       $users=User::where('role_id',3)->get();
+        return view('admin.company.index',compact('users'));
     }
 
     public function create()
@@ -28,8 +27,8 @@ class CompanyController extends Controller
 
     public function store(CreateCompanyRequest $request)
     {
-        // Policy 
-        if(Gate::denies('store')){
+        // CreateCompanyRequest  (Validation)
+        if(Gate::allows('store')){     // Policy 
             return response()->json(['message' => 'Your are not  authorize','error'=>'danger'], 200);
         }
         $user= User::create([

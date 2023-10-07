@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:2'], 'prefix' => 'user', 'as' 
     // Company
 Route::group(['middleware' => ['auth', 'CheckRole:3'], 'prefix' => 'company', 'as' => 'company.'], function () {
     // impement code by viewcomposer
-    Route::view('/dashboard','company.dashboard');
+    Route::view('/dashboard','company.dashboard')->name('dashboard');
     Route::resource('/product', ProductController::class);
     });
 

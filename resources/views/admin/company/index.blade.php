@@ -20,9 +20,7 @@
                           <th>
                             Created Account
                           </th> 
-                          <th>
-                           Action
-                          </th>
+                         
                         </tr>
                       </thead>
                       <tbody>
@@ -37,10 +35,7 @@
                           <td>
                             {{ $user->created_at->diffForHumans() }}
                           </td>
-                        <td>
-                            <button type="text" class="btn btn-danger">Delete</button>
-                           <button type="text" value="{{ $user->id }}" class="btn btn-primary">Edit</button>
-                        </td>
+                      
                         </tr>
                         @endforeach
                       </tbody>
