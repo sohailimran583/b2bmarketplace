@@ -5,7 +5,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Create New Product</h4>
-                  <form class="forms-sample" method="post" action="{{ route('user.create.product') }}" enctype="multipart/form-data">
+                  <form class="forms-sample" method="post" action="{{ route('company.product.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                       <label for="exampleInputName1">Product Name</label>

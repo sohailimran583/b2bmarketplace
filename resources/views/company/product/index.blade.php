@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+ 
 
 @section('content')
     <div class="container">
@@ -28,10 +28,10 @@
                                 <p>{!! $product->description !!}</p>
                             </div>
                             <div class="card-footer">
-                                <form method="POST" action="{{ route('checkout.product', [$product->id]) }}">
+                                {{-- <form method="POST" action="{{ route('checkout.product', [$product->id]) }}">
                                     @csrf        
                                     <button type="submit" class="btn btn-primary btn-block">Buy Now with Paypall</button>
-                                </form>
+                                </form> --}}
                             </div>
                             
                         </div>
