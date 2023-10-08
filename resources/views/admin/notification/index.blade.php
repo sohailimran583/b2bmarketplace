@@ -5,7 +5,8 @@
 <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">All User</h4>
+                  <h4 class="card-title">All Users And Companies
+                  </h4>
                   <div class="table-responsive">
                     <form method="POST" action="{{ route('admin.notification.create') }}" id="sendNotificationForm">
                       @csrf

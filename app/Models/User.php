@@ -19,8 +19,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    
-
 
     public function payment()
 {

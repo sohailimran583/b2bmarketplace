@@ -11,18 +11,11 @@ use Illuminate\Support\Facades\Gate;
 
 class CompanyController extends Controller
 {
-   
- 
 
     public function index()
     {
        $users=User::where('role_id',3)->get();
         return view('admin.company.index',compact('users'));
-    }
-
-    public function create()
-    {
-        return view('admin.company.add');
     }
 
     public function store(CreateCompanyRequest $request)
@@ -42,17 +35,9 @@ class CompanyController extends Controller
         }
     }
 
-   
-
-    // public function edit(User $user)
-    // {
-    //     $users=User::find($user);
-    //     dd($users);
-    // }
-
-    public function update(Request $request, $id)
+    public function create()
     {
-        
+        return view('admin.company.add');
     }
 
     public function destroy($id)
@@ -62,10 +47,11 @@ class CompanyController extends Controller
     return back()->with('success', 'Company deleted successfully');
 
     }
+        //    This is Route Model Binding
+    // public function edit(User $user)
+    // {
+    //    
+    // }
 
-    public function show($id)
-    {
-       
-    }
 
 }

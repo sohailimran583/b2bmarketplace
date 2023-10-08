@@ -10,7 +10,7 @@
                 <div class="card-body">
             <h3 class="card-title">Mail to <br>
                 @foreach ($users as  $user)
-                  Name =>  {{ $user->name }}  ||  email =>  {{ $user->email }} 
+                  Name =>  {{ $user->name }}  ||  email =>  {{ $user->email }}
                   <br>
                 @endforeach
                 <br>
@@ -18,6 +18,10 @@
                   <h4 class="card-title">Create Email Body</h4>
                   <form method="POST" action="{{ route('admin.notification.send') }}" id="sendNotificationForm">
                     @csrf
+                    <input type="hidden" name="ids" id="selected_user_ids" value="{{ implode(',', $ids) }}">
+                    <!-- ... Other form fields ... -->
+                 
+                          
                     <div class="form-group">
                       <label for="exampleInputName1">Enter Subject</label>
                       <input type="text" class="form-control" name="subject" placeholder="subject">
@@ -33,8 +37,7 @@
                             @endif
                       </div>
                        </div>
-                    <button type="text" id="create"  class="btn btn-primary mr-2">End Email</button>
-             
+                       <button type="submit" class="btn btn-primary mr-2">Send Email</button>             
                   </form>
                 </div>
               </div>

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Models\Payment;
-use App\Models\Product;
+use App\Models\{Payment,Product};
 use Illuminate\Http\Request;
 use App\Contracts\PaymentInterface;
 use App\Http\Controllers\Controller;
@@ -11,7 +10,7 @@ use App\Http\Controllers\Controller;
 class PaypallController extends Controller
 {
     protected $paypalService;
-
+    
     public function __construct(PaymentInterface $paypalService)
     {
         $this->paypalService = $paypalService;
@@ -23,10 +22,8 @@ class PaypallController extends Controller
     }
 
     public function cancel(){
-        return to_route('home')->with('fail', 'You have cancel the payment');
+        return to_route('home')->with('error', 'You have cancel the payment');
     }
-
-
     public function success(Request $request){
 
        $response= $this->paypalService->captureOrder($request);

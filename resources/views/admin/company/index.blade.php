@@ -6,6 +6,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">All Companies</h4>
+                  <h4 class="card-title">By ajax  =>  Add new Company</h4>
                    <a  class="btn btn-primary" href="{{route('admin.company.create')}}"> Add New Company</a>
                   <div class="table-responsive">
                     <table class="table table-striped">

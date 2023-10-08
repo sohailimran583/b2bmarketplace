@@ -24,7 +24,7 @@
     <body class="antialiased">
   <nav class="navbar navbar-expand-lg bg-light tmta-navbar-main bg-white py-3">
     <div class="container-fluid px-5">
-      <a class="navbar-brand tmta-navbar-brand" href="#">B2B Market Place</a>
+      <a class="navbar-brand tmta-navbar-brand" href="{{ route('user.dashboard') }}">B2B Market Place</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,8 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ route('product.buy') }}">Buy Product</a>
           </li>   
+          <li>Paypall email=> sb-2tx1h27230178@personal.example.com 
+            Paypall passoword => :/88VJ!m</li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('user.dashboard') }}">Dashboard</a>
           </li>
@@ -51,9 +53,7 @@
                   <a href="{{ route('login') }}" class="tmta-header-login px-4">Log in</a>
               @endauth
           </div>
-          <a class="tmta-header-search-btn-wrap" href="">
-            <button class="tmta-header-search-btn"  type="button">Create new Product</button>
-          </a>
+          
 
         </form>
       </div>

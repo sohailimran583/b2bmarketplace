@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:1'], 'prefix' => 'admin', 'as'
     Route::resource('/company', CompanyController::class);
 
     });
-Route::group(['middleware' => ['auth', 'CheckRole:2'], 'prefix' => 'user', 'as' => 'user.'], function () {
+    Route::group(['middleware' => ['auth', 'CheckRole:2'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
     Route::get('myorders/status', [OrderController::class, 'order_status'])->name('myorder.status');
 

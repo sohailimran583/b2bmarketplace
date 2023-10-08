@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\{Product,Payment};
-
+use App\Models\{Payment};
+  
 class OrderController extends Controller
-{
-   
+{ 
 
     public function order_status(){
         $orders=Payment::with('product')->where('payment_status','COMPLETED')
